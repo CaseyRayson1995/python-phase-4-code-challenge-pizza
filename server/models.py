@@ -24,7 +24,6 @@ class Restaurant(db.Model, SerializerMixin):
     # Relationships
     restaurant_pizzas = db.relationship(
         "RestaurantPizza", back_populates="restaurant", cascade="all, delete-orphan")
-                        #  could also use back_ref in place of back_populates but this is easier
     pizzas = association_proxy("restaurant_pizzas", "pizza")
 
     # Serialization rules
